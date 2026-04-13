@@ -14,13 +14,16 @@ permissions:
   contents: read
   pull-requests: write
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   tmas-scan:
     name: Scan Source Code
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       # Note: Container image build skipped — base image openjdk:8-jdk has
       # been removed from Docker Hub. Source code scan only.
